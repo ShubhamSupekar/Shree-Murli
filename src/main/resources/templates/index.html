@@ -9,18 +9,50 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en', // Original page language
+                includedLanguages: 'en,hi,mr',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+
+        // Function to check and force Marathi translation
+        function forceMarathiTranslation() {
+            if (!document.cookie.includes('googtrans=/en/mr')) {
+                // Set the cookie to ensure translation
+                document.cookie = "googtrans=/en/mr; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+                // Reload the page to apply the translation
+                location.reload();
+            }
+        }
+
+        // Load Google Translate script and force Marathi translation
+        window.addEventListener('load', function () {
+            forceMarathiTranslation();
+        });
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
 </head>
 <body>
 <header class="header">
     <div class="logo">
         <img src="/photos/Company Name and Photo.jpg" alt="Company Logo">
     </div>
+
+    <!-- Language Selector -->
+    <div id="google_translate_element" class="language-selector"></div>
 </header>
 
 <div class="navbar-container">
     <nav>
         <ul>
-            <li class="active"><a href="/">Home</a></li>
+            <li class="active"><a href="/">Home Page</a></li>
 <!--            <li><a href="#about">About Us</a></li>-->
             <li><a href="#contact">Contact Us</a></li>
         </ul>
